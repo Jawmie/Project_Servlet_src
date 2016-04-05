@@ -114,7 +114,7 @@ public class AirServlet extends HttpServlet {
                   out.println("</table>");
                   out.println("<t><p>==== " + count + " records found ====</p></t>");
               }
-            out.println( "<p><INPUT TYPE=\"button\" id=\"submitbutton\" onClick=\"history.go(-1)\" VALUE=\"Search Another\"></p>" );
+            out.println( "<p><INPUT TYPE=\"button\" style=\"background-image:url('img/searchAnButt.png'); width: 146px; height: 24px;\" onClick=\"history.go(-1)\"></p>" );
             out.println("</body></html>");
 
         } catch (SQLException e) {
