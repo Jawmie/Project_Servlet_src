@@ -55,25 +55,21 @@ public class AirServlet extends HttpServlet {
         String datefData = request.getParameter("datef");
         String datetData = request.getParameter("datet");
 
-
-
-
         System.out.println(dateRearrange(datefData));
         System.out.println(dateRearrange(datetData));
 
-
-                /*
-                "<th><font color=white face=\"verdana\">Date From</font></th>" +
-                "<th><font color=white face=\"verdana\">Date To</font></th></tr>");*/
-
         try {
             out.println("<html><head><title>Air Quality Module</title>" +
-                    "<link rel=\"stylesheet\" href=\"styles.css\"></head><body>");
+                    "<link rel=\"stylesheet\" href=\"styles.css\">" +
+                    "</head><body>" +
+                    "<meta http-equiv=\"refresh\" content=\"30\" /></head><body>");
             out.println("<h2>Results as follows:</h2>");
             out.println("<p><font color=white face=\"verdana\"><h3>Date range: </h3>" +
                     dateRearrange(datefData) + "<b> to </b>" + dateRearrange(datetData) + "</font></p>");
 
-            out.println("<table style=\"width:100%\">"
+            out.println( "<p><INPUT TYPE=\"button\" style=\"background-image:url('img/searchAnButt.png'); width: 146px; height: 24px;\" onClick=\"history.go(-1)\"></p>" );
+
+            out.println("<div class=\"scroll\"><table style=\"width:100%\">"
                     + "<tr><th><font color=white face=\"verdana\">Room</font></th>" +
                     "<th><font color=white face=\"verdana\">Temperature</font></th>" +
                     "<th><font color=white face=\"verdana\">Light(lux)</font></th>" +
@@ -92,7 +88,7 @@ public class AirServlet extends HttpServlet {
                                       "</font></td></tr>");
                       ++count;
                   }
-                  out.println("</table>");
+                  out.println("</div></table>");
                   out.println("<t><p>==== " + count + " records found ====</p></t>");
               }
               else {
@@ -111,10 +107,10 @@ public class AirServlet extends HttpServlet {
                                       "</font></td></tr>");
                       ++count;
                   }
-                  out.println("</table>");
+                  out.println("</div></table>");
                   out.println("<t><p>==== " + count + " records found ====</p></t>");
               }
-            out.println( "<p><INPUT TYPE=\"button\" style=\"background-image:url('img/searchAnButt.png'); width: 146px; height: 24px;\" onClick=\"history.go(-1)\"></p>" );
+
             out.println("</body></html>");
 
         } catch (SQLException e) {
